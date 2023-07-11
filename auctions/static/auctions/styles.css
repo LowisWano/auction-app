@@ -1,0 +1,61 @@
+body {
+    padding: 0px;
+}
+
+#bro{
+    margin-left: 19px;
+    color: #002D62
+}
+
+.navi{
+    background-color: #002D62;
+}
+
+.bodie{
+    margin: 15px;
+}
+
+.title{
+    font-family: Garamond;
+    color:azure;
+}
+
+a:link {
+    color: azure;
+  }
+  /* visited link */
+a:visited {
+color: azure;
+}
+  /* mouse over link */
+a:hover {
+text-decoration: underline;
+}
+  /* selected link */
+a:active {
+color: azure;
+}
+
+.listing_name{
+  text-align: center;
+  font-family: Serif;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.img_position{
+  text-align: center;
+}
+
+.custom_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.custom_box {
+  border: 1px solid black;
+  padding: 20px;
+  max-width: 30rem;
+}

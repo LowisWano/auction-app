@@ -1,0 +1,31 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<div class="bodie">
+    <h2 id="bro" style="color: #002D62">Create Listing</h2>
+    <form action="{% url 'create' %}" method="POST">
+        {% csrf_token %}
+        <div id="bro" style="color: #002D62; margin-right: 34px;">
+            <p>Item you want to sell (Required)</p>
+            <input class='form-control' type="text" name="item_name">
+            <p>Description (Required)</p>
+            <textarea class='form-control' type="text" name="item_description"></textarea>
+            <p>Image URL (optional)</p>
+            <input class='form-control' type="text" name="item_url">
+            <p>Bidding starts at (Required)</p>
+            <input class='form-control' type="text" name="item_starting_bid">
+            <p>Category (Required)</p>
+            <select style="padding-left: 1px;" name="item_category">
+                {% for category in categories %}
+                    <option>{{ category }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div id="bro" style="margin-top: 30px">
+            <input class="btn btn-success" type="submit" value="Save Listing">
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+
+    <div style="display: flex; justify-content: center; align-items: center; height: 70vh;">
+        <div class="card" style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); width: 35rem;">
+            <div class="card-body">
+                <h2 style="color: #002D62;margin-left:auto; margin-right:auto; width:30rem; display:block; margin-bottom: 30px;">Register</h2>
+                
+                    <form action="{% url 'register' %}" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input style="margin-left:auto; margin-right:auto; width:30rem; display:block;" class="form-control" autofocus type="text" name="username" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <input style="margin-left:auto; margin-right:auto; width:30rem; display:block;" class="form-control" type="email" name="email" placeholder="Email Address">
+                        </div>
+                        <div class="form-group">
+                            <input style="margin-left:auto; margin-right:auto; width:30rem; display:block;" class="form-control" type="password" name="password" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <input style="margin-left:auto; margin-right:auto; width:30rem; display:block;" class="form-control" type="password" name="confirmation" placeholder="Confirm Password">
+                        </div>
+                        <input style="margin-left:auto; margin-right:auto; width:30rem; display:block;" class="btn btn-primary" type="submit" value="Register">
+                    </form>
+
+                <p style="margin-top: 20px;margin-left:auto; margin-right:auto; width:30rem; display:block;">Already have an account? <a style="color:blue" href="{% url 'login' %}">Log In here.</a></p>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

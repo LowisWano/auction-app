@@ -1,0 +1,35 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+{% if logged_in == False %}
+<div class="alert alert-danger" role="alert">
+    You are not logged in.
+</div>
+{% endif %}
+
+<div class="bodie">
+    <h2 id="bro" style="color: #002D62">Active Listings</h2>
+
+    {% if not active_listing %}
+    <div class="alert alert-secondary" role="alert">
+        No active listings available.
+    </div>
+    {% endif %}
+
+    <div class="row mx-3">
+        {% for listing in active_listing %}
+            <div class="card" style="width: 18rem; margin-right: 13px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
+                <img class="card-img-top" src="{{ listing.image_url }}" alt="{{listing.product_name}}">
+                <div class="card-body">
+                <h5 class="card-title" style="color: #002D62">{{ listing.product_name }}</h5>
+                <p class="card-text">{{ listing.product_description }}</p>
+                <a href="{% url 'listing' id=listing.id %}" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+    
+{% endblock %}
